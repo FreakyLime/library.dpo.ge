@@ -4,7 +4,6 @@
 
 $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
-
 return array(
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
