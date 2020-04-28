@@ -1,4 +1,4 @@
-<?
+<?php 
 if (isset($MainVideos[0])){
     $video1 = $MainVideos[0]['video_url'] ;
     preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $video1, $matches1);

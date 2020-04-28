@@ -2,7 +2,7 @@
 <div class="portlet-body">
     <div class="row">
         @foreach($GetModules as $Module)
-            <div class="col-md-my" style="width: <? echo  100 / count($GetModules)?>%;">
+            <div class="col-md-my" style="width: <?php echo  100 / count($GetModules)?>%;">
                 <div class="mt-widget-3">
                     <div class="mt-head {{ $Module->bgcolor }}">
                         <div class="mt-head-icon">

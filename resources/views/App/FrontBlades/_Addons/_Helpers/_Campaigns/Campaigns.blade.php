@@ -49,7 +49,7 @@
                                                                                         <span class="title bpg_caps fs14">{{ trans('web.Goal') }}:</span>
                                                                                         <strong class="amount">
                                                                                             {{ $item['goal'] }}
-                                                                                            <? if($lang == "ge"){?>
+                                                                                            <?php if($lang == "ge"){?>
                                                                                             <span class="gel">c</span>
                                                                                             <?} else echo trans('web.eng_lari') ?>
                                                                                         </strong>
@@ -58,7 +58,7 @@
                                                                                         <span class="title bpg_caps fs14">{{ trans('web.Raised') }}:</span>
                                                                                         <strong class="amount">
                                                                                             {{ $item['raised'] }}
-                                                                                            <? if($lang == "ge"){?>
+                                                                                            <?php if($lang == "ge"){?>
                                                                                             <span class="gel">c</span>
                                                                                             <?} else echo trans('web.eng_lari') ?>
                                                                                         </strong>
@@ -70,7 +70,7 @@
                                                                                     <li>
                                                                                         <span class="title bpg_caps fs14">{{ trans('web.Time_Remain') }}:</span>
                                                                                         <strong class="amount">
-                                                                                            <?
+                                                                                            <?php 
                                                                                             $now = Carbon::now();
                                                                                             $endtime =  Carbon::parse($item->time_end);
                                                                                             echo $endtime->diffInDays($now);
@@ -80,7 +80,7 @@
                                                                                     </li>
                                                                                 </ul>
                                                                                 <div class="pie-title-center demo-pie-1"
-                                                                                     data-percent="<? echo $percent = ($item->raised / $item->goal) * 100; ?>">
+                                                                                     data-percent="<?php echo $percent = ($item->raised / $item->goal) * 100; ?>">
                                                                                     <span class="pie-value"></span><b class="bpg_caps">{{ trans('web.complated') }}</b>
                                                                                 </div>
                                                                             </div>

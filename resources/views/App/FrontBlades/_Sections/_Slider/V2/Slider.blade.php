@@ -5,9 +5,9 @@
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                    <? $i = 0; ?>
+                    <?php $i = 0; ?>
                     @foreach($MainSlider as $slider)
-                        <div class="item <? echo ($i==0) ? 'active' :''; $i++?> ">
+                        <div class="item <?php echo ($i==0) ? 'active' :''; $i++?> ">
                             <img src="{{ asset('public/'.$slider->image) }}" alt="image" class="web_slider_full_cover">
                             <div class="carousel-caption">
                                 <div class="exclusively-flowers">

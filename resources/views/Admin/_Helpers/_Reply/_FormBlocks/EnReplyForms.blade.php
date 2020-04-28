@@ -4,7 +4,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($ReplyItem['title_en'])) { ?>
+        <?php if(isset($ReplyItem['title_en'])) { ?>
         {{ Form::text('title_en',$ReplyItem['title_en'], array('class'=>'form-control','placeholder'=>'სათაური / ინგლისური')) }}
         <?} else{?>
         {{ Form::text('title_en',null, array('class'=>'form-control','placeholder'=>'სათაური / ინგლისური')) }}
@@ -18,7 +18,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($ReplyItem['short_text_en'])) { ?>
+        <?php if(isset($ReplyItem['short_text_en'])) { ?>
         {{ Form::text('short_text_en',$ReplyItem['short_text_en'], array('class'=>'form-control','placeholder'=>'თანამდებობა')) }}
         <?} else{?>
         {{ Form::text('short_text_en',null, array('class'=>'form-control','placeholder'=>'თანამდებობა')) }}
@@ -32,7 +32,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($ReplyItem['full_text_en'])) { ?>
+        <?php if(isset($ReplyItem['full_text_en'])) { ?>
         {{ Form::text('full_text_en',$ReplyItem['full_text_en'], array('class'=>'form-control','placeholder'=>'კლიენტის შეფასება')) }}
         <?} else{?>
         {{ Form::text('full_text_en',null, array('class'=>'form-control','placeholder'=>'კლიენტის შეფასება')) }}

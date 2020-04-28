@@ -7,7 +7,7 @@
         <input name="{{ $ModuleForm["title"] }}"
                type="text" class="form-control"
                placeholder="{{ $ModuleForm["placeholder"] }}"
-               value="<?
+               value="<?php 
                     if(old($ModuleForm['title'])) echo old($ModuleForm['title']);
                     elseif(isset($TableItem[$ModuleForm["title"]])) echo $TableItem[$ModuleForm["title"]];
                ?>">

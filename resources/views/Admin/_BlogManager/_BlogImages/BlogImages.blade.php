@@ -13,7 +13,7 @@
 
                     <p>
                         @if ($errors->any())
-                            <i class="icon-settings font-red-sunglo"></i> <? echo implode('', $errors->all(':message')) ?>
+                            <i class="icon-settings font-red-sunglo"></i> <?php echo implode('', $errors->all(':message')) ?>
                         @endif
                     </p>
                 </div>
@@ -116,9 +116,9 @@
                         <button type="button" class="btn default">გაუქმება</button>
                     </div>
                 </div>
-                <? if(isset($BlogItem)){?> <input type="hidden" name="current_image" value="{{$BlogItem['image']}}"><?}?> {{--არსებობს თუ არა სურათის რედქატირების დროს--}}
-                <? if(isset($BlogItem)){?> <input type="hidden" name="current_tumb" value="{{$BlogItem['tumb']}}"><?}?> {{--არსებობს თუ არა პატარა სურათის რედქატირების დროს--}}
-                <? if(isset($BlogItem)){?> <input type="hidden" name="record_item_id" value="{{$BlogItem['id']}}"><?}?> {{--პროდუქციის ID-ი რედაქტირების შემთხვევაში--}}
+                <?php if(isset($BlogItem)){?> <input type="hidden" name="current_image" value="{{$BlogItem['image']}}"><?}?> {{--არსებობს თუ არა სურათის რედქატირების დროს--}}
+                <?php if(isset($BlogItem)){?> <input type="hidden" name="current_tumb" value="{{$BlogItem['tumb']}}"><?}?> {{--არსებობს თუ არა პატარა სურათის რედქატირების დროს--}}
+                <?php if(isset($BlogItem)){?> <input type="hidden" name="record_item_id" value="{{$BlogItem['id']}}"><?}?> {{--პროდუქციის ID-ი რედაქტირების შემთხვევაში--}}
                 <input type="hidden" name="menu_id" value="{{ $menu_id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             </form>

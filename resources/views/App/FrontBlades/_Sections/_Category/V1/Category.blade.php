@@ -17,7 +17,7 @@
             <p></p>
             <br>
 
-            <? if($show ==1){?>
+            <?php if($show ==1){?>
             <h3 class="wg-title store-alt bpg_caps fs22">{{ trans('web.aromats_title') }}</h3>
             <?php
             $aromats = \Illuminate\Support\Facades\Input::has('aromat') ? \Illuminate\Support\Facades\Input::get('aromat'): []

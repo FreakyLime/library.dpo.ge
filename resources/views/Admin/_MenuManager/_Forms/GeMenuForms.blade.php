@@ -31,8 +31,8 @@
         <div class="form-group col-md-6 col-sm-6">
             <label>ლინკის გახსნის მეთოდი</label>
             <select class="form-control" name="target">
-                <option value="_self" <? if($Menu["target"] == '_self')  echo ' selected="selected"'?>>გაიხსნას არსებულ ფანჯარაში</option>
-                <option value="_blank" <? if($Menu["target"] == '_blank')  echo ' selected="selected"'?>>გაიხსნას ახალ ფანჯარაში</option>
+                <option value="_self" <?php if($Menu["target"] == '_self')  echo ' selected="selected"'?>>გაიხსნას არსებულ ფანჯარაში</option>
+                <option value="_blank" <?php if($Menu["target"] == '_blank')  echo ' selected="selected"'?>>გაიხსნას ახალ ფანჯარაში</option>
             </select>
         </div>
 

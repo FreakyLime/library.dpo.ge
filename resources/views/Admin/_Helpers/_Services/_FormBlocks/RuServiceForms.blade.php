@@ -4,7 +4,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($ServiceItem['title_ru'])) { ?>
+        <?php if(isset($ServiceItem['title_ru'])) { ?>
         {{ Form::text('title_ru',$ServiceItem['title_ru'], array('class'=>'form-control','placeholder'=>'სათაური / რუსული')) }}
         <?} else{?>
         {{ Form::text('title_ru',null, array('class'=>'form-control','placeholder'=>'სათაური / რუსული')) }}
@@ -18,7 +18,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($ServiceItem['short_text_ru'])) { ?>
+        <?php if(isset($ServiceItem['short_text_ru'])) { ?>
         {{ Form::text('short_text_ru',$ServiceItem['short_text_ru'], array('class'=>'form-control','placeholder'=>'მოკლე ტექსტი / რუსული')) }}
         <?} else{?>
         {{ Form::text('short_text_ru',null, array('class'=>'form-control','placeholder'=>'მოკლე ტექსტი / რუსული')) }}

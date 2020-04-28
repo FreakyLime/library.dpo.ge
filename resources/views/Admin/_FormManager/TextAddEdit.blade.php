@@ -44,7 +44,7 @@
                                                     <div class="form-group col-md-12 col-sm-12">
                                                         <label>შეიყვანეთ ტექსი ქართული</label>
                                                         <textarea name="full_text_ge" class="form-control ckreplace" id="ck-ge" rows="10">
-                                                        <?
+                                                        <?php 
                                                            if(isset($PageText)) echo $PageText['full_text_ge'];
                                                         ?>
                                                         </textarea>
@@ -65,7 +65,7 @@
                                                     <div class="form-group col-md-12 col-sm-12">
                                                         <label>შეიყვანეთ ტექსი ინგლისური</label>
                                                         <textarea name="full_text_en" class="form-control ckreplace" id="ck-en" rows="10">
-                                                        <?
+                                                        <?php 
                                                             if(isset($PageText)) echo $PageText['full_text_en'];
                                                         ?>
                                                         </textarea>
@@ -86,7 +86,7 @@
                                                     <div class="form-group col-md-12 col-sm-12">
                                                         <label>შეიყვანეთ ტექსი რუსული</label>
                                                         <textarea name="full_text_ru" class="form-control ckreplace" id="ck-ru" rows="10">
-                                                        <?
+                                                        <?php 
                                                             if(isset($PageText)) echo $PageText['full_text_ru'];
                                                         ?>
                                                         </textarea>

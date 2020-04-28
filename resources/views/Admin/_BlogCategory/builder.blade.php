@@ -61,7 +61,7 @@ $(function() {
       <div class="well">
         <p class="lead bpg_caps fbold"><a href="#newModal" class="btn btn-default pull-right" data-toggle="modal"><span class="glyphicon glyphicon-plus-sign"></span> ახალი კატეგორიის დამატება</a> არსებული მენიუები:</p>
         <div class="dd" id="nestable">
-          <? echo $blog ?>
+          <?php echo $blog ?>
         </div>
 
         <p id="success-indicator" style="display:none; margin-right: 10px;">

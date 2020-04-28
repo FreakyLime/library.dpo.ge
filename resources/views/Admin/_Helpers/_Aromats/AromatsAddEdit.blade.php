@@ -25,7 +25,7 @@
                     <div class="caption font-red-sunglo">
                         <p>
                             @if ($errors->any())
-                                <i class="icon-settings font-red-sunglo"></i> <? echo implode('', $errors->all(':message')) ?>
+                                <i class="icon-settings font-red-sunglo"></i> <?php echo implode('', $errors->all(':message')) ?>
                             @endif
                         </p>
                     </div>
@@ -43,7 +43,7 @@
                                         <span class="input-group-addon">
                                             <i class="fa fa-check"></i>
                                         </span>
-                                        <? if(isset($AromatsItem['title_ge'])) { ?>
+                                        <?php if(isset($AromatsItem['title_ge'])) { ?>
                                         {{ Form::text('title_ge',$AromatsItem['title_ge'], array('class'=>'form-control','placeholder'=>'სათაური / ქართული')) }}
                                         <?} else{?>
                                         {{ Form::text('title_ge',null, array('class'=>'form-control','placeholder'=>'სათაური / ქართული')) }}
@@ -59,7 +59,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-check"></i>
                                     </span>
-                                    <? if(isset($AromatsItem['title_en'])) { ?>
+                                    <?php if(isset($AromatsItem['title_en'])) { ?>
                                     {{ Form::text('title_en',$AromatsItem['title_en'], array('class'=>'form-control','placeholder'=>'სათაური / ინგლისური')) }}
                                     <?} else{?>
                                     {{ Form::text('title_en',null, array('class'=>'form-control','placeholder'=>'სათაური / ინგლისური')) }}
@@ -75,7 +75,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-check"></i>
                                     </span>
-                                    <? if(isset($AromatsItem['title_ru'])) { ?>
+                                    <?php if(isset($AromatsItem['title_ru'])) { ?>
                                     {{ Form::text('title_ru',$AromatsItem['title_ru'], array('class'=>'form-control','placeholder'=>'სათაური / რუსული')) }}
                                     <?} else{?>
                                     {{ Form::text('title_ru',null, array('class'=>'form-control','placeholder'=>'სათაური / რუსული')) }}
@@ -96,7 +96,7 @@
                             <button type="button" class="btn default">გაუქმება</button>
                         </div>
                     </div>
-                    <? if(isset($AromatsItem)){?> <input type="hidden" name="record_item_id" value="{{$AromatsItem['id']}}"><?}?> {{--პროდუქციის ID-ი რედაქტირების შემთხვევაში--}}
+                    <?php if(isset($AromatsItem)){?> <input type="hidden" name="record_item_id" value="{{$AromatsItem['id']}}"><?}?> {{--პროდუქციის ID-ი რედაქტირების შემთხვევაში--}}
                     <input type="hidden" name="menu_id" value="{{ $menu_id }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>

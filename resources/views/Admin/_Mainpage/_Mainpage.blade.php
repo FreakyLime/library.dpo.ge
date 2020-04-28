@@ -96,7 +96,7 @@
                             </div>
                             <div class="uppercase profile-stat-text margin_top10">
                                 <input type="hidden" name="lang[ge]" value="0" />
-                                <input name="lang[ge]" type="checkbox" <? echo ($Settings['langs']['title_ge'] == 1) ? 'checked' : ''?> class="make-switch"  data-size="mini" value="{{ $Settings['langs']['title_ge'] }}">
+                                <input name="lang[ge]" type="checkbox" <?php echo ($Settings['langs']['title_ge'] == 1) ? 'checked' : ''?> class="make-switch"  data-size="mini" value="{{ $Settings['langs']['title_ge'] }}">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
@@ -105,7 +105,7 @@
                             </div>
                             <div class="uppercase profile-stat-text margin_top10">
                                 <input type="hidden" name="lang[en]" value="0" />
-                                <input name="lang[en]" type="checkbox" <? echo ($Settings['langs']['title_en'] == 1) ? 'checked' : ''?> class="make-switch"  data-size="mini" value="{{ $Settings['langs']['title_en'] }}">
+                                <input name="lang[en]" type="checkbox" <?php echo ($Settings['langs']['title_en'] == 1) ? 'checked' : ''?> class="make-switch"  data-size="mini" value="{{ $Settings['langs']['title_en'] }}">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="uppercase profile-stat-text margin_top10">
                                 <input type="hidden" name="lang[ru]" value="0" />
-                                <input name="lang[ru]" type="checkbox" <? echo ($Settings['langs']['title_ru'] == 1) ? 'checked' : ''?>  class="make-switch"   data-size="mini" value="{{ $Settings['langs']['title_ru'] }}">
+                                <input name="lang[ru]" type="checkbox" <?php echo ($Settings['langs']['title_ru'] == 1) ? 'checked' : ''?>  class="make-switch"   data-size="mini" value="{{ $Settings['langs']['title_ru'] }}">
                             </div>
                         </div>
                         <div class="col-md-12 button_box padding_top30">

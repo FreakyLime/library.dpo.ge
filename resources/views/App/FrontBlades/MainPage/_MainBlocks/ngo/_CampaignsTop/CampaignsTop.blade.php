@@ -14,7 +14,7 @@
                         <span class="title fs14 bpg_caps">{{ trans('web.Goal') }}:</span>
                         <strong class="amount">
                             {{ $OneCampaign['goal'] }}
-                            <? if($lang == "ge"){?>
+                            <?php if($lang == "ge"){?>
                             <span class="gel">c</span>
                             <?} else echo trans('web.eng_lari') ?>
                         </strong>
@@ -23,7 +23,7 @@
                         <span class="title fs14 bpg_caps">{{ trans('web.Raised') }}:</span>
                         <strong class="amount">
                             {{ $OneCampaign['raised'] }}
-                            <? if($lang == "ge"){?>
+                            <?php if($lang == "ge"){?>
                             <span class="gel">c</span>
                             <?} else echo trans('web.eng_lari') ?>
                         </strong>
@@ -43,8 +43,8 @@
                          aria-valuenow="0"
                          aria-valuemin="0"
                          aria-valuemax="100"
-                         style="height: <? echo $percent = ( $OneCampaign['raised'] / $OneCampaign['goal']  ) * 100; ?>%;">
-                        <span class="sr-only"><? echo $percent = ( $OneCampaign['raised'] / $OneCampaign['goal']  ) * 100; ?><sup>%</sup></span>
+                         style="height: <?php echo $percent = ( $OneCampaign['raised'] / $OneCampaign['goal']  ) * 100; ?>%;">
+                        <span class="sr-only"><?php echo $percent = ( $OneCampaign['raised'] / $OneCampaign['goal']  ) * 100; ?><sup>%</sup></span>
                     </div>
                 </div>
                 <div class="btn-row pd-t-40">

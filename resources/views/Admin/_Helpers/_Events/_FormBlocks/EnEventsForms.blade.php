@@ -6,7 +6,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($TableItem['title_en'])) { ?>
+        <?php if(isset($TableItem['title_en'])) { ?>
             {{ Form::text('title_en',$TableItem['title_en'], array('class'=>'form-control','placeholder'=>'სათაური / ინგლისური')) }}
         <?} else{?>
             {{ Form::text('title_en',null, array('class'=>'form-control','placeholder'=>'სათაური / ინგლისური')) }}
@@ -20,7 +20,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($TableItem['short_text_en'])) { ?>
+        <?php if(isset($TableItem['short_text_en'])) { ?>
             {{ Form::text('short_text_en',$TableItem['short_text_en'], array('class'=>'form-control','placeholder'=>'მოკლე ტექსტი / ინგლისური')) }}
         <?} else{?>
             {{ Form::text('short_text_en',null, array('class'=>'form-control','placeholder'=>'მოკლე ტექსტი / ინგლისური')) }}
@@ -30,7 +30,7 @@
 <p></p>
 <div class="form-group col-md-12 col-sm-12">
     <label>სრული ტექსტი / ინგლისური</label>
-    <? if(isset($TableItem['full_text_en'])) { ?>
+    <?php if(isset($TableItem['full_text_en'])) { ?>
         {{ Form::textarea('full_text_en',$TableItem['full_text_en'], array('class'=>'form-control ckreplaceclass', 'id'=>'ck-en')) }}
     <?} else{?>
         {{ Form::textarea('full_text_en',null, array('class'=>'form-control ckreplaceclass', 'id'=>'ck-en')) }}
@@ -43,7 +43,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($TableItem['description_en'])) { ?>
+        <?php if(isset($TableItem['description_en'])) { ?>
             {{ Form::text('description_en',$TableItem['description_en'], array('class'=>'form-control','placeholder'=>'აღწერა / ინგლისური')) }}
         <?} else{?>
             {{ Form::text('description_en',null, array('class'=>'form-control','placeholder'=>'აღწერა / ინგლისური')) }}
@@ -57,7 +57,7 @@
         <span class="input-group-addon">
             <i class="fa fa-check"></i>
         </span>
-        <? if(isset($TableItem['keywords_en'])) { ?>
+        <?php if(isset($TableItem['keywords_en'])) { ?>
             {{ Form::text('keywords_en',$TableItem['keywords_en'], array('class'=>'form-control','placeholder'=>'საკვანძო სიტყვები / ინგლისური')) }}
         <?} else{?>
             {{ Form::text('keywords_en',null, array('class'=>'form-control','placeholder'=>'საკვანძო სიტყვები / ინგლისური')) }}

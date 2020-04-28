@@ -25,7 +25,7 @@
                     <div class="caption font-red-sunglo">
                         <p>
                             @if ($errors->any())
-                                <i class="icon-settings font-red-sunglo"></i> <? echo implode('', $errors->all(':message')) ?>
+                                <i class="icon-settings font-red-sunglo"></i> <?php echo implode('', $errors->all(':message')) ?>
                             @endif
                         </p>
                     </div>
@@ -39,7 +39,7 @@
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail" style="width: 365px; height: 220px;">
                                             <img src="
-                                                <? if(isset($TableItem->image)) echo asset('public/'.$TableItem->image);
+                                                <?php if(isset($TableItem->image)) echo asset('public/'.$TableItem->image);
                                             else echo "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image";?>
                                                     " alt="" />
                                         </div>
@@ -127,9 +127,9 @@
                             <button type="button" class="btn default">გაუქმება</button>
                         </div>
                     </div>
-                    <? if(isset($TableItem)){?> <input type="hidden" name="current_image" value="{{$TableItem['image']}}"><?}?> {{--არსებობს თუ არა სურათის რედქატირების დროს--}}
-                    <? if(isset($TableItem)){?> <input type="hidden" name="current_tumb" value="{{$TableItem['tumb']}}"><?}?> {{--არსებობს თუ არა პატარა სურათის რედქატირების დროს--}}
-                    <? if(isset($TableItem)){?> <input type="hidden" name="record_item_id" value="{{$TableItem['id']}}"><?}?> {{--პროდუქციის ID-ი რედაქტირების შემთხვევაში--}}
+                    <?php if(isset($TableItem)){?> <input type="hidden" name="current_image" value="{{$TableItem['image']}}"><?}?> {{--არსებობს თუ არა სურათის რედქატირების დროს--}}
+                    <?php if(isset($TableItem)){?> <input type="hidden" name="current_tumb" value="{{$TableItem['tumb']}}"><?}?> {{--არსებობს თუ არა პატარა სურათის რედქატირების დროს--}}
+                    <?php if(isset($TableItem)){?> <input type="hidden" name="record_item_id" value="{{$TableItem['id']}}"><?}?> {{--პროდუქციის ID-ი რედაქტირების შემთხვევაში--}}
                     <input type="hidden" name="menu_id" value="{{ $menu_id }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
@@ -146,7 +146,7 @@
 
 
     {{--MORE IMAGES BOX--}}
-    <? if(isset($TableImages)){?>
+    <?php if(isset($TableImages)){?>
         @include('Admin._Helpers._ServicesItems._ServicesImages.ServicesImages')
     <?}?>
     {{--MORE IMAGES BOX--}}
