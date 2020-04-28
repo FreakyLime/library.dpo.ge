@@ -1,0 +1,172 @@
+.cover-img{
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.cover-img-sized{
+    object-fit: cover !important;
+}
+.contain-img{
+    width: 100% !important;
+    object-fit: contain !important;
+}
+.img-250{
+    height: 250px !important;
+}
+.img-sizes{
+    height: 90px !important;
+    width: 184px !important;
+}
+
+.admin_gallery_tumb {
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 565px !important;
+    height:220px !important;
+}
+.admin_mini_tumb {
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 80px !important;
+    height: 50px !important;
+}
+.web_sale_loop_cover{
+    object-fit: contain !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 338px !important;
+}
+.web_products_cover{
+    object-fit: contain !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 500px !important;
+}
+
+.web_slider_full_cover{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 300px !important;
+}
+
+.web_news_loop_cover{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 30vh !important;
+}
+.web_album_loop_cover{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 30vh !important;
+}
+.web_news_like_loop_cover{
+    object-fit: cover !important;
+    width: 105px !important;
+    height: 80px !important;
+}
+.web_news_main_loop_cover{
+    object-fit: cover !important;
+    width: 215px !important;
+    height: 170px !important;
+}
+.web_news_main_costum_cover{
+    object-fit: cover !important;
+    width: 270px !important;
+    height: 170px !important;
+}
+.web_album_like_loop_cover{
+     object-fit: cover !important;
+     width: 105px !important;
+     height: 80px !important;
+}
+.web_gallery_loop_cover{
+    object-fit: cover !important;
+    width: 400px !important;
+    height: 250px !important;
+}
+.web_more_loop_cover{
+      object-fit: cover !important;
+      width: 250px !important;
+      height: 170px !important;
+}
+.web_news_tumb_cover{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 120px !important;
+}
+.web_news_full_cover{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 400px !important;
+}
+.web_album_full_cover{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 400px !important;
+}
+
+/*ADDONS*/
+.icons_tumb{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 82px !important;
+    height: 72px !important;
+    padding-top: 10px !important;
+    padding-left: 9px;
+    padding-right: 9px;
+    margin: 0px !important;
+}
+.icons_large_tumb{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 130px !important;
+    height: 120px !important;
+    padding-top: 10px !important;
+    padding-left: 9px;
+    padding-right: 9px;
+    margin: 0px !important;
+}
+.campaigns_tumb{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 220px !important;
+}
+.teams_tumb{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 343px !important;
+}
+.partners_tumb{
+     object-fit: cover !important;
+     max-width: 100% !important;
+     width: 184px !important;
+     height: 92px !important;
+     background-size: contain;
+     -moz-background-size: contain;
+     -webkit-background-size: contain;
+ }
+.events_tumbs{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 80px !important;
+    height: 75px !important;
+}
+.mainvideo_tumbs{
+    object-fit: cover !important;
+    max-width: 100% !important;
+    width: 120px !important;
+    height:85px !important;
+ }
+
+.banner_poll {
+    object-fit: cover !important;
+    width: 100% !important;
+    height:220px !important;
+}

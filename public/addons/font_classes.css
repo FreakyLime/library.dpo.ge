@@ -1,0 +1,102 @@
+@font-face {
+  font-family: bpg-medium-caps;
+  src: url('fonts/bpg/bpg_medium_caps.eot');
+  src: url('fonts/bpg/bpg_medium_caps.eot?#iefix') format('embedded-opentype'),
+  url('fonts/bpg/bpg_medium_caps.woff') format('woff'),
+  url('fonts/bpg/bpg_medium_caps.ttf') format('truetype'),
+  url('fonts/bpg/bpg_medium_caps.svg#bpg_medium_caps') format('svg');
+}
+@font-face {
+  font-family: bpg-arial;
+  src: url('fonts/bpg/bpg_arial_2009.eot');
+  src: url('fonts/bpg/bpg_arial_2009.eot?#iefix') format('embedded-opentype'),
+  url('fonts/bpg/bpg_arial_2009.woff') format('woff'),
+  url('fonts/bpg/bpg_arial_2009.ttf') format('truetype'),
+  url('fonts/bpg/bpg_arial_2009.svg#bpg_arial_2009.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'gel';
+  src:url('fonts/gel.ttf') format('truetype');
+}
+
+.gel{
+  font-family: 'gel';
+}
+
+/*Bold font*/
+.fbold{
+  font-weight: bold !important;
+}
+
+/*Standart Sizes*/
+.f12{
+  font-size: 12px !important;
+}
+.f13{
+  font-size: 13px !important;
+}
+.f14{
+  font-size: 14px !important;
+}
+.f15{
+  font-size: 15px !important;
+}
+.f16{
+  font-size: 16px !important;
+}
+.f17{
+  font-size: 17px !important;
+}
+.f18{
+  font-size: 18px !important;
+}
+.f19{
+  font-size: 19px !important;
+}
+.f20{
+  font-size: 20px !important;
+}
+.f22{
+  font-size: 22px !important;
+}
+.f24{
+  font-size: 24px !important;
+}
+.f26{
+  font-size: 26px !important;
+}
+.f28{
+  font-size: 28px !important;
+}
+.f30{
+  font-size: 30px !important;
+}
+.f32{
+  font-size: 32px !important;
+}
+.f40{
+  font-size: 40px !important;
+}
+
+.bpg_caps{
+  font-family: 'bpg-medium-caps' !important;
+}
+.bpg_arial{
+  font-family: 'bpg-arial' !important;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+.black_font{
+  color: #000000 !important;
+}
+.white_font{
+  color: #FFFFFF !important;
+}
+.gray_font{
+  color: #d9ecff !important;
+}
+.red_font{
+  color: #e60000 !important;
+}
