@@ -5,7 +5,7 @@
 <!--Start Title-->
 <div id="inner-banner" style="background:#000 url('{{ asset('public/'.$Settings['page_bg']['image']) }}') no-repeat center center/cover;">
     <div class="container">
-        <h1 class="bpg_caps fs36">{{ $News['title_'.$lang] }}</h1>
+        <h3 class="bpg_caps fs36">{{ $News['title_'.$lang] }}</h3>
     </div>
 </div>
 <!--End Title-->
@@ -66,15 +66,20 @@
 
             <div class="col-md-3 col-sm-4 content_sidebar sidebar side-bar">
                 <div class="widget sidebar-box sidebar-recent-post ">
-                    @if(!is_null($News['document_'.$lang]) && $News['document_'.$lang] != '')
-                    <h5>{{ trans('web.download_file') }}</h5>
-                    <div style="margin-bottom:50px !important">
-                        <a href="{{$News['document_'.$lang]}}">
-                            <img width="120px" src="/public/files/file_types/{{pathinfo($News['document_'.$lang],PATHINFO_EXTENSION)}}.png">
-                        </a>
-                    </div>
+                    @if(!is_null($News['document_' . $lang]) && $News['document_' . $lang] != '' && $News['document_' . $lang] != '[]')
+                    <?php $docs = json_decode($News['document_' . $lang], true); ?>
+                    <h5>{{ trans('web.download_file') }}</h5><br>
+                    <div class="row">
+                        <div class="col">
+                        @foreach($docs as $file)
+                            <a href="{{$file}}">
+                                <img style="width:30%;margin-bottom:10px !important;padding-bottom:10px;" src="/public/files/file_types/{{pathinfo($file,PATHINFO_EXTENSION)}}.png">
+                            </a>
+                        @endforeach
+                        </div>
+                    </div><br><br>
                     @endif
-                    <h5>{{ trans('web.similar_news') }}</h5>
+                    <h5>{{ trans('web.similar_news') }}</h5><br>
                     <div class="recent-widget">
                         <ul>
                             {{--მსგავსი სიახლეების შემოტანა--}}

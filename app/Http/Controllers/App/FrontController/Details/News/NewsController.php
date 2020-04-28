@@ -26,7 +26,7 @@ class NewsController extends MainController
         $this->data["News"] =  $News;
 
         // სიახლის დამატებითი სურათების წაკითხვა
-        $this->data["Images"] =  $moreImages->GetMoreImages($News->id,'news');
+        $this->data["Images"] =  $moreImages->GetMoreImages($News['id'],'news');
 
         // სხვა სიახლის წაკითხვა მენიუს id-ის მიხედვით
         $this->data["LikeNews"] = $news->GetLikeNews($News);
@@ -40,7 +40,7 @@ class NewsController extends MainController
             'title' => $News['title_'.$this->data['lang']],
             'description' => $News['description_'.$this->data['lang']],
             'keywords' => $News['keywords_'.$this->data['lang']],
-            'image' => asset('public/'.$News->image),
+            'image' => asset('public/'.$News['image']),
         );
     }
 }

@@ -78,19 +78,9 @@ class NewsModule extends Model
         $news->youtube_link_ru = $this->youtubeVideoID($News_forms['youtube_link_ru']);
         $news->youtube_link_ge = $this->youtubeVideoID($News_forms['youtube_link_ge']);
 
-        //დოკუმენტების ატვირთვა
-        if (!is_null($News_forms['document_ru']) && $News_forms['document_ru'] != '') {
-            $dRes = $this->documentUpload('document_ru','ru');
-            $news->document_ru = !$dRes ? null : $dRes;
-        }
-        if (!is_null($News_forms['document_ge']) && $News_forms['document_ge'] != '') {
-            $dRes = $this->documentUpload('document_ge','ge');
-            $news->document_ge = !$dRes ? null : $dRes;
-        }
-        if (!is_null($News_forms['document_en']) && $News_forms['document_en'] != '') {
-            $dRes = $this->documentUpload('document_en','en');
-            $news->document_en = !$dRes ? null : $dRes;
-        }
+        $news->document_ge = $this->bindFiles($News_forms['doc_ge'], 'ge');
+        $news->document_en = $this->bindFiles($News_forms['doc_en'], 'en');
+        $news->document_ru = $this->bindFiles($News_forms['doc_ru'], 'ru');
 
         $news->save();
     }
@@ -139,19 +129,19 @@ class NewsModule extends Model
 
         //დოკუმენტების ატვირთვა
         if (isset($News_forms['document_ru']) && !is_null($News_forms['document_ru']) && $News_forms['document_ru'] != '') {
-            $dRes = $this->documentUpload('document_ru','ru');
+            $dRes = $this->documentUpload('document_ru', 'ru');
             $news->document_ru = !$dRes ? null : $dRes;
         } else {
             unset($News_forms['document_ru']);
         }
         if (isset($News_forms['document_ge']) && !is_null($News_forms['document_ge']) && $News_forms['document_ge'] != '') {
-            $dRes = $this->documentUpload('document_ge','ge');
+            $dRes = $this->documentUpload('document_ge', 'ge');
             $news->document_ge = !$dRes ? null : $dRes;
         } else {
             unset($News_forms['document_ge']);
         }
         if (isset($News_forms['document_en']) && !is_null($News_forms['document_en']) && $News_forms['document_en'] != '') {
-            $dRes = $this->documentUpload('document_en','en');
+            $dRes = $this->documentUpload('document_en', 'en');
             $news->document_en = !$dRes ? null : $dRes;
         } else {
             unset($News_forms['document_en']);
@@ -177,23 +167,42 @@ class NewsModule extends Model
     | დამხმარე ფუნქციები
     |
     */
-    public function documentUpload($fileToUpload, $lang)
+    public function bindFiles($inputFiles,$lang) {
+
+        $files = [];
+
+        if (implode($inputFiles)) {
+            foreach ($inputFiles as $key => $file) {
+                if (is_null($inputFiles[$key])) {
+                    continue;
+                }
+                $dRes = $this->documentUpload($lang, $key);
+                $docs = $files;
+                $docs[$key] = !$dRes ? '' : $dRes;
+                $files = $docs;
+            }
+        }
+
+        return json_encode($files);
+    }
+
+    public function documentUpload($doc_lang, $key)
     {
         $target_dir = public_path("files/documents/");
-        $fileName = preg_replace('/\s+/', '_', basename($_FILES[$fileToUpload]["name"]));
+        $fileName = preg_replace('/\s+/', '_', basename($_FILES['doc_' . $doc_lang]["name"][$key]));
         $target_file = $target_dir . $fileName;
         $downloadPath = '/public/files/documents/';
         $downloadFilePath = $fileName;
 
         if (file_exists($target_file)) {
             $path_parts = pathinfo($target_file);
-            $versionName = $path_parts['filename'].'_'.$lang.'_'.rand(0,1000).'.'.$path_parts['extension'];
-            $target_file = $path_parts['dirname'].'/'.$versionName;
+            $versionName = $path_parts['filename'] . '_' . $doc_lang . '_' . rand(0, 1000) . '.' . $path_parts['extension'];
+            $target_file = $path_parts['dirname'] . '/' . $versionName;
             $downloadFilePath = $versionName;
         }
 
-        if (move_uploaded_file($_FILES[$fileToUpload]["tmp_name"], $target_file)) {
-            return $downloadPath.$downloadFilePath;
+        if (move_uploaded_file($_FILES['doc_' . $doc_lang]["tmp_name"][$key], $target_file)) {
+            return $downloadPath . $downloadFilePath;
         }
 
         return false;

@@ -71,14 +71,6 @@
                                     @if(isset($TableItem) && !is_null($TableItem->document_ru))
                                     &nbsp;|&nbsp;<a href="{{env('APP_URL')}}{{$TableItem->document_ru}}">რუსული</a>
                                     @endif
-                                    
-                                    <br><br><h4>ფაილების შეცვლა / მიმაგრება</h4>
-                                    ქართული<br>
-                                    <input class="form-control" type="file" name="document_ge">
-                                    <br>ინგლისური<br>
-                                    <input class="form-control" type="file" name="document_en">
-                                    <br>რუსული<br>
-                                    <input class="form-control" type="file" name="document_ru">
 
                                 </div>
                             </div>
@@ -121,7 +113,7 @@
                                                 </p>
                                                 @include($source)
                                                 @endforeach
-                                            </div>
+                                             </div>
                                         </div>
                                         {{--ქართული კონტენტი--}}
                                     </div>
