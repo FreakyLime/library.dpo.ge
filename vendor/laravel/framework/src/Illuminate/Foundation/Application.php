@@ -140,6 +140,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
      */
     public function __construct($basePath = null)
     {
+        error_log(111111111);
         $this->registerBaseBindings();
 
         $this->registerBaseServiceProviders();

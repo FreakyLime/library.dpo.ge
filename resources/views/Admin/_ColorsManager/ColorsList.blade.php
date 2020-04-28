@@ -48,7 +48,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <? $i = 1;?>
+                    <?=$i = 1;?>
                     @foreach($GetColors as $Colors)
                         <tr>
                             <td class="table_verticac_center f18 fbold"> <?=$i; $i++?> </td>

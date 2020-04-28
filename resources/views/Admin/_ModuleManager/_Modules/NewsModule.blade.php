@@ -49,7 +49,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <? $i = 1;?>
+                    <?=$i = 1;?>
                     @foreach($GetNews as $News)
                         <tr>
                             <td class="table_verticac_center f18 fbold"> <?=$i; $i++?> </td>
