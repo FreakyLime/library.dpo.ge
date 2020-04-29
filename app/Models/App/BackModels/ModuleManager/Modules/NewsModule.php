@@ -78,6 +78,7 @@ class NewsModule extends Model
         $news->youtube_link_ru = $this->youtubeVideoID($News_forms['youtube_link_ru']);
         $news->youtube_link_ge = $this->youtubeVideoID($News_forms['youtube_link_ge']);
 
+        //attach documents
         $news->document_ge = $this->bindFiles($News_forms['doc_ge'], 'ge');
         $news->document_en = $this->bindFiles($News_forms['doc_en'], 'en');
         $news->document_ru = $this->bindFiles($News_forms['doc_ru'], 'ru');
@@ -127,25 +128,10 @@ class NewsModule extends Model
         $news->youtube_link_ru = $this->youtubeVideoID($News_forms['youtube_link_ru']);
         $news->youtube_link_ge = $this->youtubeVideoID($News_forms['youtube_link_ge']);
 
-        //დოკუმენტების ატვირთვა
-        if (isset($News_forms['document_ru']) && !is_null($News_forms['document_ru']) && $News_forms['document_ru'] != '') {
-            $dRes = $this->documentUpload('document_ru', 'ru');
-            $news->document_ru = !$dRes ? null : $dRes;
-        } else {
-            unset($News_forms['document_ru']);
-        }
-        if (isset($News_forms['document_ge']) && !is_null($News_forms['document_ge']) && $News_forms['document_ge'] != '') {
-            $dRes = $this->documentUpload('document_ge', 'ge');
-            $news->document_ge = !$dRes ? null : $dRes;
-        } else {
-            unset($News_forms['document_ge']);
-        }
-        if (isset($News_forms['document_en']) && !is_null($News_forms['document_en']) && $News_forms['document_en'] != '') {
-            $dRes = $this->documentUpload('document_en', 'en');
-            $news->document_en = !$dRes ? null : $dRes;
-        } else {
-            unset($News_forms['document_en']);
-        }
+        //attach documents
+        $news->document_ge = $this->bindFiles($News_forms['doc_ge'], 'ge', $News_forms['current_document_ge']);
+        $news->document_en = $this->bindFiles($News_forms['doc_en'], 'en', $News_forms['current_document_en']);
+        $news->document_ru = $this->bindFiles($News_forms['doc_ru'], 'ru', $News_forms['current_document_ru']);
 
         $news->save();
     }
@@ -167,23 +153,25 @@ class NewsModule extends Model
     | დამხმარე ფუნქციები
     |
     */
-    public function bindFiles($inputFiles,$lang) {
+    public function bindFiles($inputFiles, $lang, $oldFiles = '')
+    {
 
-        $files = [];
+        $files = strlen($oldFiles) > 2 ? json_decode($oldFiles, true) : [];
 
         if (implode($inputFiles)) {
             foreach ($inputFiles as $key => $file) {
-                if (is_null($inputFiles[$key])) {
+                error_log($key);
+                if (is_null($inputFiles["$key"])) {
                     continue;
                 }
                 $dRes = $this->documentUpload($lang, $key);
                 $docs = $files;
-                $docs[$key] = !$dRes ? '' : $dRes;
+                $docs["$key"] = !$dRes ? '' : $dRes;
                 $files = $docs;
             }
         }
 
-        return json_encode($files);
+        return implode($files) ? json_encode($files) : null;
     }
 
     public function documentUpload($doc_lang, $key)
