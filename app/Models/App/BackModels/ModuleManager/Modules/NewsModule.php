@@ -47,8 +47,8 @@ class NewsModule extends Model
 
         $news->menu_id        =    $News_forms['menu_id'];
 
-        $news->image          =    "files/news/" . $UpImage;
-        $news->tumb           =    "files/news/tumb/" . $UpImage;
+        $news->image          =    $UpImage ? "files/news/" . $UpImage : '';
+        $news->tumb           =    $UpImage ? "files/news/tumb/" . $UpImage : '';
         $news->date           =    Carbon::now()->toDayDateTimeString();
         $news->main           =    $News_forms['main'];
         $news->pos           =     $News_forms['pos'];

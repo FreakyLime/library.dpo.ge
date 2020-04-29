@@ -45,7 +45,6 @@ class News extends Model
     // ძიება
     public function SearchPageNews($searchTerm)
     {
-        error_log($searchTerm);
         $res = $this->OrderBy('pos', 'asc')
         ->where('title_ge', 'LIKE', "%$searchTerm%") 
         ->orWhere('title_en', 'LIKE', "%$searchTerm%") 
@@ -55,7 +54,6 @@ class News extends Model
         ->orWhere('full_text_ru', 'LIKE', "%$searchTerm%") 
         ->get();
         
-        //return $this->OrderBy('pos','asc')->Main()->take('5')->get();
         return $res;
     }
 

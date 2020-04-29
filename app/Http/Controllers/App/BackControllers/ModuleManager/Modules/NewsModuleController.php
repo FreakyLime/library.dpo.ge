@@ -76,16 +76,19 @@ class NewsModuleController extends MainController
         // პოსტით მოსული ყველა ინფორმაციის წაკითხვა
         $News_forms = $request->all();
 
-        //სურათის ვალიდაცია შესაბამის ფორმატებზე
-        $validate_result = $this->ImageValidate($request);
+        $UpImage = false;
+        if (isset($News_forms['image'])) {
+            //სურათის ვალიდაცია შესაბამის ფორმატებზე
+            $validate_result = $this->ImageValidate($request);
 
-        //სურათის ატვირთვისას პრობლემის შემთხვევაში ვაბრუნებთ უკან შეცდომის შეტყობინებით
-        if ($validate_result) {
-            return Redirect::back()->withErrors($this->validate);
+            //სურათის ატვირთვისას პრობლემის შემთხვევაში ვაბრუნებთ უკან შეცდომის შეტყობინებით
+            if ($validate_result) {
+                return Redirect::back()->withErrors($this->validate);
+            }
+
+            //სურათის ატვირთვა
+            $UpImage = $imageLybrary->UpImage($request, $this->Table, $this->root, $sizes);
         }
-
-        //სურათის ატვირთვა
-        $UpImage = $imageLybrary->UpImage($request, $this->Table, $this->root, $sizes);
 
         /*ინფორმაციის დამატება + სურათი*/
         $NewsModule->SaveNews($request->all(), $UpImage);
