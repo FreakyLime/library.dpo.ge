@@ -66,7 +66,7 @@
                         <div class="col">
                             @foreach($docs as $file)
                             <a href="{{$file}}">
-                                <img style="width:30%;margin-bottom:10px !important;padding-bottom:10px;" src="/public/files/file_types/{{pathinfo($file,PATHINFO_EXTENSION)}}.png">
+                                <img data-toggle="tooltip" title="{{pathinfo($file,PATHINFO_FILENAME)}}" style="width:30%;margin-bottom:10px !important;padding-bottom:10px;" src="/public/files/file_types/{{pathinfo($file,PATHINFO_EXTENSION)}}.png">
                             </a>
                             @endforeach
                         </div>

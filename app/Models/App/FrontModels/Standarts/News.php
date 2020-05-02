@@ -54,6 +54,7 @@ class News extends Model
         ->orWhere('full_text_ru', 'LIKE', "%$searchTerm%") 
         ->get();
         
+        //return $this->OrderBy('pos','asc')->Main()->take('5')->get();
         return $res;
     }
 

@@ -66,13 +66,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-rel='tooltip' href="{{ trans('social.linkedin') }}" target="_blank" title="Linkedin">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-rel='tooltip' href="{{ trans('social.google') }}" target="_blank" title="Google Plus">
-                                        <i class="fa fa-google-plus"></i>
+                                    <a data-rel='tooltip' href="{{ trans('social.youtube') }}" target="_blank" title="Youtube channel">
+                                        <i class="fa fa-youtube-square"></i>
                                     </a>
                                 </li>
 
