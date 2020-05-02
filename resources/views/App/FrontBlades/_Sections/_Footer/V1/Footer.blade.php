@@ -82,9 +82,9 @@
         </div>
     </section>
     <section class="copyrights-section">
-        <strong class="copy">
+        <!-- <strong class="copy">
             {{ trans('web.author') }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Created By <a href="http://www.visual.ge">Visual Studio</a>
-        </strong>
+        </strong> -->
     </section>
 </footer>
