@@ -7,7 +7,12 @@
     <div class="container">
         <h1 class="bpg_caps">{{ $CurrentMenu['title_'.$lang] }}</h1>
         <center>
-            <input style="width:30vw;margin-top:-10px;" type="text" id="searchForm" class="form-control" placeholder="{{ trans('web.search') }}">
+            <div class="input-group" style="width:40vw; margin-top:-10px;">
+                <input type="text" class="searchForm form-control" placeholder="{{ trans('web.search') }}">
+                <span class="input-group-btn">
+                    <button class="searchForm btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
         </center>
     </div>
 </div>

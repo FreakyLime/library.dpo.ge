@@ -1,7 +1,7 @@
 <section class="logo-row">
     <div class="container">
         <div class="holder"><strong class="logo">
-                <a href="{{ asset('') }}" id="tohome">
+                <a href="{{ asset('') }}">
                     <img width="230" height="99" src="{{ asset('public/Theme/content/themes/theneeds/images/logo.png') }}"
                          alt="">
                 </a>
@@ -19,8 +19,6 @@
                     </button>
                 </div>
 
-
-
                 <div id="navbar" class="collapse navbar-collapse">
                     <div id="default-menu" class="header-menu">
                         <ul id="nav" class="navbar-nav">
@@ -29,15 +27,15 @@
 
                                 @if($menu->id == 1 )
                                     <li>
-                                        <a href="{{ asset('') }}" class="bpg_caps fbold fs16 menu-item "><span> {{ $menu['title_'.$lang] }} </span></a>
+                                        <a href="{{ asset('') }}" target="{{ $menu['target'] }}" class="bpg_caps fbold fs16 menu-item "><span> {{ $menu['title_'.$lang] }} </span></a>
                                     </li>
                                 @elseif($menu->controller)
                                     <li>
-                                        <a href="{{ asset($menu->controller) }}" class="bpg_caps fbold fs16 menu-item "><span> {{ $menu['title_'.$lang] }} </span></a>
+                                        <a href="{{ asset($menu->controller) }}" target="{{ $menu['target'] }}" class="bpg_caps fbold fs16 menu-item "><span> {{ $menu['title_'.$lang] }} </span></a>
                                     </li>
                                 @elseif($menu->level == 0)
                                     <li>
-                                        <a href="{{ asset('menu/'.$menu->id) }}" class="bpg_caps fbold fs16 menu-item "><span> {{ $menu['title_'.$lang] }} </span></a>
+                                        <a href="{{ asset('menu/'.$menu->id) }}" target="{{ $menu['target'] }}" class="bpg_caps fbold fs16 menu-item "><span> {{ $menu['title_'.$lang] }} </span></a>
                                     </li>
                                 @elseif($menu->level == 1)
                                     <li> <a href="#" class="bpg_caps fbold fs16 menu-item">{{ $menu['title_'.$lang] }}</a> <span class="arrow"></span>
@@ -45,13 +43,13 @@
                                             @foreach($menu->submenu as $submenu)
                                                 @if($submenu->controller)
                                                     <li>
-                                                        <a href="{{ asset($submenu->controller) }}" class="bpg_caps fbold fs16 menu-item ">
+                                                        <a href="{{ asset($submenu->controller) }}" target="{{ $submenu['target'] }}" class="bpg_caps fbold fs16 menu-item ">
                                                             <span> {{ $submenu['title_'.$lang] }} </span>
                                                         </a>
                                                     </li>
                                                 @else
                                                     <li>
-                                                        <a href="{{ asset('menu/'.$submenu->id) }}" class="bpg_caps fbold fs16 menu-item">
+                                                        <a href="{{ asset('menu/'.$submenu->id) }}" target="{{ $submenu['target'] }}"  class="bpg_caps fbold fs16 menu-item">
                                                             {{ $submenu['title_'.$lang] }}
                                                         </a>
                                                     </li>
@@ -66,11 +64,6 @@
                         </ul>
                     </div>
                 </div>
-
-
-
-
-
             </nav>
             {{--<div class="search-box">
                 <div class="dropdown">

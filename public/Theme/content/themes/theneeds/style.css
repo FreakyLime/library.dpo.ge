@@ -325,7 +325,7 @@ a.btn-style-2 .fa {
 .top-bar .left-box ul li {
     float: left;
     padding: 8px 15px;
-    border-left: 1px solid #e1e1e1;
+    /* border-left: 1px solid #e1e1e1; */
     font: 400 12px/12px 'Roboto', sans-serif;
     color: #fff;
 }

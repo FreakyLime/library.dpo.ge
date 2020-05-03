@@ -3,7 +3,7 @@
     <div class="row" style="margin-bottom:20px;">
         <div class="col-md-8">
             <h2 class="bpg_caps fs36">{{ trans('web.What_Doing') }}</h2>
-            <em class="bpg_caps">{{ trans('web.What_Doing_text') }}</em>
+            <!-- <em class="bpg_caps">{{ trans('web.What_Doing_text') }}</em> -->
         </div>
         <div class="col-md-4">
             <div class="input-group">

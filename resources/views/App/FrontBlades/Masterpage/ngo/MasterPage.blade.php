@@ -16,8 +16,13 @@
     <!-- ვიდეოს და სლალერიის სკრიპტი -->
     @include('App.FrontBlades._Sections._Scripts._Special._lightgallery.css')
 
+    <script>
+        if (!localStorage.getItem('voice_disabled')) {
+            document.write("<script src='https://code.responsivevoice.org/responsivevoice.js?key=dChwzjXk'><\/script>");
+        }
+    </script>
     <!-- ხმოვანი ბმულები !-->
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=dChwzjXk"></script>
+
 
 </head>
 
@@ -64,6 +69,26 @@
                 }
             });
         })
+    </script>
+
+    <script>
+        jQuery(document).ready(function() {
+            if (!localStorage.getItem('voice_disabled')) {
+                jQuery('#voiceControl').addClass('fa fa-volume-up');
+            } else {
+                jQuery('#voiceControl').addClass('fa fa-volume-off');
+            }
+        });
+
+        function switchVoice() {
+            if (localStorage.getItem('voice_disabled')) {
+                localStorage.removeItem('voice_disabled');
+            } else {
+                localStorage.setItem('voice_disabled', 1);
+            }
+
+            location.reload();
+        }
     </script>
 
 </body>

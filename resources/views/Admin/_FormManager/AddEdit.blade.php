@@ -40,9 +40,9 @@
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail" style="width: 365px; height: 220px;">
                                         <img src="
-                                                <?php if (isset($TableItem->image)) echo asset('public/' . $TableItem->image);
-                                                else echo "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"; ?>
-                                                    " alt="" />
+                                            <?php if (isset($TableItem->image)) echo asset('public/' . $TableItem->image);
+                                            else echo "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"; ?>
+                                        " alt="" />
                                     </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail" style="width: 365px; height: 220px;"> </div>
                                     <div>
@@ -56,29 +56,60 @@
                                 </div>
                                 <div style="padding-top:20px !important;width:100%;">
                                     <!-- თუ რომელიმე ფაილი მიმაგრებულია !-->
-                                    @if (isset($TableItem) && (!is_null($TableItem->document_ge) || !is_null($TableItem->document_ru) || !is_null($TableItem->document_en)))
                                     <h4>მიმაგრებული ფაილები</h4>
+                                    @if(isset($TableItem) && !is_null($TableItem->document_ge) && $TableItem->document_ge != "[]")
+                                    <?php $attachedFles = json_decode($TableItem->document_ge, true); ?>
+                                    @foreach($attachedFles as $key => $file)
+                                    <div class="row">
+                                        <div class="cols col-sm-1">
+                                            <img src="/public/files/file_types/{{pathinfo($file,PATHINFO_EXTENSION)}}.png" style="width:16px">
+                                        </div>
+                                        <div class="cols col-sm-10">
+                                            <a href="{{env('APP_URL')}}{{$file}}" style="word-wrap:break-word">{{pathinfo($file,PATHINFO_FILENAME)}}</a>
+                                        </div>
+                                        <div class="cols col-sm-1 text-right">
+                                            <a href="#" onclick="unsetFile('ge', '{{$key}}')"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    @endforeach
                                     @endif
 
-                                    @if(isset($TableItem) && !is_null($TableItem->document_ge))
-                                    <a href="{{env('APP_URL')}}{{$TableItem->document_ge}}">ქართული</a>
+                                    @if(isset($TableItem) && !is_null($TableItem->document_en) && $TableItem->document_en != "[]")
+                                    <?php $attachedFles = json_decode($TableItem->document_en, true); ?>
+                                    @foreach($attachedFles as $file)
+                                    <div class="row">
+                                        <div class="cols col-sm-1">
+                                            <img src="/public/files/file_types/{{pathinfo($file,PATHINFO_EXTENSION)}}.png" style="width:16px">
+                                        </div>
+                                        <div class="cols col-sm-10">
+                                            <a href="{{env('APP_URL')}}{{$file}}" style="word-wrap:break-word">{{pathinfo($file,PATHINFO_FILENAME)}}</a>
+                                        </div>
+                                        <div class="cols col-sm-1 text-right">
+                                            <a href=""><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    @endforeach
                                     @endif
 
-                                    @if(isset($TableItem) && !is_null($TableItem->document_en))
-                                    &nbsp;|&nbsp;<a href="{{env('APP_URL')}}{{$TableItem->document_en}}">ინგლისური</a>
+                                    @if(isset($TableItem) && !is_null($TableItem->document_ru) && $TableItem->document_ru != "[]")
+                                    <?php $attachedFles = json_decode($TableItem->document_ru, true); ?>
+                                    @foreach($attachedFles as $file)
+                                    <div class="row">
+                                        <div class="cols col-sm-1">
+                                            <img src="/public/files/file_types/{{pathinfo($file,PATHINFO_EXTENSION)}}.png" style="width:16px">
+                                        </div>
+                                        <div class="cols col-sm-10">
+                                            <a href="{{env('APP_URL')}}{{$file}}" style="word-wrap:break-word">{{pathinfo($file,PATHINFO_FILENAME)}}</a>
+                                        </div>
+                                        <div class="cols col-sm-1 text-right">
+                                            <a href=""><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    @endforeach
                                     @endif
-
-                                    @if(isset($TableItem) && !is_null($TableItem->document_ru))
-                                    &nbsp;|&nbsp;<a href="{{env('APP_URL')}}{{$TableItem->document_ru}}">რუსული</a>
-                                    @endif
-                                    
-                                    <br><br><h4>ფაილების შეცვლა / მიმაგრება</h4>
-                                    ქართული<br>
-                                    <input class="form-control" type="file" name="document_ge">
-                                    <br>ინგლისური<br>
-                                    <input class="form-control" type="file" name="document_en">
-                                    <br>რუსული<br>
-                                    <input class="form-control" type="file" name="document_ru">
 
                                 </div>
                             </div>
@@ -169,13 +200,18 @@
 
                 <div class="col-md-12 button_box padding_top30 pad_left0">
                     <div class="form-actions col-md-12 col-sm-12">
-                        <button type="submit" class="btn blue">დამატება</button>
+                        <button type="submit" id="formSubmit" class="btn blue">დამატება</button>
                         <button type="button" class="btn default">გაუქმება</button>
                     </div>
                 </div>
                 <?php if (isset($TableItem)) { ?> <input type="hidden" name="current_image" value="{{$TableItem->image}}"><?php } ?> {{--არსებობს თუ არა სურათის რედქატირების დროს--}}
                 <?php if (isset($TableItem)) { ?> <input type="hidden" name="current_tumb" value="{{$TableItem->tumb}}"><?php } ?> {{--არსებობს თუ არა პატარა სურათის რედქატირების დროს--}}
                 <?php if (isset($TableItem)) { ?> <input type="hidden" name="record_item_id" value="{{$TableItem->id}}"><?php } ?> {{--სიახლის ID-ი რედაქტირების შემთხვევაში--}}
+
+                <?php if (isset($TableItem)) { ?> <input type="hidden" id="current_document_ge" name="current_document_ge" value="{{$TableItem->document_ge}}"><?php } ?> {{--თუ არსებობს ძველი დოკუმენტები--}}
+                <?php if (isset($TableItem)) { ?> <input type="hidden" id="current_document_en" name="current_document_en" value="{{$TableItem->document_en}}"><?php } ?> {{--თუ არსებობს ძველი დოკუმენტები--}}
+                <?php if (isset($TableItem)) { ?> <input type="hidden" id="current_document_ru" name="current_document_ru" value="{{$TableItem->document_ru}}"><?php } ?> {{--თუ არსებობს ძველი დოკუმენტები--}}
+
                 <input type="hidden" name="module" value="{{ $Table }}">
                 <input type="hidden" name="menu_id" value="{{ $menu_id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -215,7 +251,7 @@
                     </div>
                 </div>
 
-                <form action="{{route($MoreImgRoute)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route($MoreImgRoute)}}" method="post" id="editForm" enctype="multipart/form-data">
                     <div class="col-md-12 padding_bottom50">
                         {{--სურათის ატვირთვა--}}
                         <div class="col-md-3 pad_left0">
@@ -328,5 +364,15 @@
     </div>
 <?php } ?>
 {{--MORE IMAGES BOX--}}
+
+<script>
+    function unsetFile(l, i) {
+        var f = $('#current_document_' + l).val();
+        f = JSON.parse(f);
+        f[i] = undefined;
+        $('#current_document_' + l).val(JSON.stringify(f))
+        $("#formSubmit").click();
+    }
+</script>
 
 @stop
